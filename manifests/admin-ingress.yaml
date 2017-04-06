@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /admin
+  name: admin-ingress
+spec:
+  rules:
+  - host: 
+    http:
+      paths:
+      - path: /admin
+        backend:
+          serviceName: admin-service
+          servicePort: 9080

@@ -28,7 +28,7 @@
             <transport-guarantee>NONE</transport-guarantee>
         </user-data-constraint>
         <auth-constraint>
-            <role-name>adminRole</role-name>
+            <role-name>AdminRole</role-name>
         </auth-constraint>
     </security-constraint>
  </web-app>

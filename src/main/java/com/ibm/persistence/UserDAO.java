@@ -18,7 +18,6 @@ package com.ibm.persistence;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -60,10 +59,6 @@ public class UserDAO {
 
     public List<User> getAllUsers() {
         return new ArrayList<>(userMap.values());
-    }
-
-    public Optional<User> findById(final String id) {
-        return Optional.ofNullable(userMap.get(id));
     }
 
 }
