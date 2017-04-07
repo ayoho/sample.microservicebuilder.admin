@@ -12,12 +12,6 @@ spec:
       containers:
       - name: microservice-admin
         image: microservice-admin:latest
-#       env:
-#       - name: EXTERNAL_IP_ADDR
-#         valueFrom:
-#           configMapKeyRef:
-#             name: ipaddr-config
-#             key: EXTERNAL_IP_ADDR
         ports:
           - containerPort: 9080
         imagePullPolicy: IfNotPresent

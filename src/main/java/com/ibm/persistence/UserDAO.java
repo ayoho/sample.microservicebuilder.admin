@@ -43,12 +43,12 @@ public class UserDAO {
         bootstrapData.getUsers()
                 .forEach(bootstrap -> {
                     try {
-                        final User sensitiveClass = new User(
+                        final User user = new User(
                                 bootstrap.getId(),
                                 bootstrap.getEmployeeId(),
                                 bootstrap.getUsername());
 
-                        userMap.put(bootstrap.getId(), sensitiveClass);
+                        userMap.put(bootstrap.getId(), user);
 
                     } catch (final Exception e) {
                         System.out.println("Failed to parse bootstrap data: " + e.getMessage());

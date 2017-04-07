@@ -54,17 +54,3 @@ spec:
     - port: 9080
   selector:
     name: admin-deployment
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: admin-service-nodeport
-  namespace: default
-spec:
-  type: NodePort
-  ports:
-    - port: 9443
-      nodePort: 31015
-
-  selector:
-    name: admin-deployment

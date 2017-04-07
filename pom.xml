@@ -21,56 +21,56 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>sample.microservicebuilder</groupId>
-	  <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <artifactId>microservice-admin</artifactId>
     <packaging>war</packaging>
     <name>Conference :: Admin</name>
 
     <properties>
-      <maven.compiler.source>1.8</maven.compiler.source>
-      <maven.compiler.target>1.8</maven.compiler.target>
-      <docker.file.dir>artifacts</docker.file.dir>
-      <webxml.path></webxml.path>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <docker.file.dir>artifacts</docker.file.dir>
+        <webxml.path></webxml.path>
     </properties>
 
     <repositories>
-      <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-      </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
     </repositories>
 
     <build>
-      <plugins>
-          <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-war-plugin</artifactId>
-              <version>2.6</version>
-              <configuration>
-                  <webXml>${webxml.path}</webXml> 
-                  <failOnMissingWebXml>false</failOnMissingWebXml>
-                  <packagingExcludes>pom.xml</packagingExcludes>
-              </configuration>
-          </plugin>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <webXml>${webxml.path}</webXml>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <packagingExcludes>pom.xml</packagingExcludes>
+                </configuration>
+            </plugin>
 
-          <plugin>
-            <groupId>io.fabric8</groupId>
-            <artifactId>docker-maven-plugin</artifactId>
-            <configuration>
-              <images>
-                <image>
-                  <name>microservice-admin</name>
-                  <build>
-                    <dockerFileDir>${docker.file.dir}</dockerFileDir>
-                    <assembly>
-                      <descriptorRef>artifact</descriptorRef>
-                    </assembly>
-                  </build>
-                </image>
-              </images>
-            </configuration>
-          </plugin>
-      </plugins>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>microservice-admin</name>
+                            <build>
+                                <dockerFileDir>${docker.file.dir}</dockerFileDir>
+                                <assembly>
+                                    <descriptorRef>artifact</descriptorRef>
+                                </assembly>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
 
@@ -83,33 +83,20 @@
         </dependency>
 
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>2.8.2</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
             <groupId>com.github.wasdev.microprofile-conference</groupId>
             <artifactId>demo-bootstrap</artifactId>
             <version>1.0.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>microprofile</artifactId>
-            <scope>provided</scope>
-            <version>2016.10.0</version>
-        </dependency>
     </dependencies>
-    
-    <profiles> 
-         <profile>
+
+    <profiles>
+        <profile>
             <id>security</id>
             <properties>
                 <docker.file.dir>artifactsSecured</docker.file.dir>
-                <webxml.path>src/main/liberty/webapp-security/web.xml</webxml.path>                    
-            </properties>            
-        </profile>         
+                <webxml.path>src/main/liberty/webapp-security/web.xml</webxml.path>
+            </properties>
+        </profile>
     </profiles>
 </project>

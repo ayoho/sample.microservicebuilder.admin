@@ -15,7 +15,6 @@
  */
 package com.ibm.resources;
 
-import java.util.Calendar;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -39,14 +38,6 @@ public class UserResource {
 
     @Inject
     private UserDAO userDAO;
-
-    // For use as a k8s readinessProbe for this service
-    @GET
-    @Path("/nessProbe")
-    @Produces(MediaType.TEXT_PLAIN)
-    public Response nessProbe() throws Exception {
-        return Response.ok("User resource ready at " + Calendar.getInstance().getTime()).build();
-    }
 
     @GET
     @Path("/all")

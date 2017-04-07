@@ -16,7 +16,6 @@
 
     <openidConnectClient id="rp" signatureAlgorithm="RS256" inboundPropagation="supported"
            scope="openid profile email"
-           redirectToRPHostAndPort="https://${env.EXTERNAL_IP_ADDR}:31015"
            httpsRequired="false"
            clientId="rp"
            clientSecret="rpSecret"
