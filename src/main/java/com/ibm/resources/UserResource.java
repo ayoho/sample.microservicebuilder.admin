@@ -30,7 +30,6 @@ import javax.ws.rs.core.Response;
 import com.ibm.model.User;
 import com.ibm.persistence.UserDAO;
 
-@ApplicationScoped
 @Produces({ MediaType.APPLICATION_JSON })
 @Consumes(MediaType.APPLICATION_JSON)
 @Path("/")
